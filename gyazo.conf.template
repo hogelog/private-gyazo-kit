@@ -1,4 +1,5 @@
 {
   "host": "gyazo.hogel.org",
   "port": 8088
+  "path": "/upload"
 }
