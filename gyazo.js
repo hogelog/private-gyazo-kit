@@ -62,7 +62,7 @@ server = http.createServer(function(req, res){
         }
       });
     form.parse(req);
-  } else if (url.indexOf(".png") == 32) {
+  } else if (url.indexOf(".png") == 33) {
     // publish image
     var imagepath = "./image/" + path.basename(url);
     path.exists(imagepath, function(exists){
