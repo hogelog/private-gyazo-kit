@@ -3,7 +3,15 @@ var
   formidable = require("formidable"),
   fs = require("fs"),
   crypto = require("crypto"),
-  path = require("path");
+  path = require("path"),
+  jsonconfig = require("jsonconfig");
+
+jsonconfig.load(["./gyazo.conf"], function(err){
+  if (err) throw err;
+});
+var HOST = jsonconfig["host"];
+var PORT = jsonconfig["port"];
+var URL = "http://" + HOST + ":" + PORT + "/";
 
 server = http.createServer(function(req, res){
   var url = req.url;
@@ -31,7 +39,7 @@ server = http.createServer(function(req, res){
           res.end("cannot write uploaded data");
         } else {
           res.writeHead(200, {"Content-Type": "text/plain"});
-          res.end("http://gyazo.hogel.org:8088/" + dst_name);
+          res.end(URL + dst_name);
           console.log("uploaded " + dst_name);
         }
       });
@@ -52,5 +60,5 @@ server = http.createServer(function(req, res){
   }
 });
 
-server.listen(8088, "gyazo.hogel.org");
-console.log("Server running");
+server.listen(PORT);
+console.log("Server running at " + URL);
