@@ -1,9 +1,9 @@
-# Gyazo Private Kit
-Gyazo Private Kit could build your only Gyazo [(http://gyazo.com/)](http://gyazo.com/)
+# Private Gyazo Kit
+Private Gyazo Kit could build your only Gyazo [(http://gyazo.com/)](http://gyazo.com/)
 Server and Clients.
 
 ## Run server
-Gyazo Private server powered by node.js.
+Private Gyazo server powered by node.js.
 
     $ npm install formidable
     $ npm install jsonconfig
@@ -12,7 +12,7 @@ Gyazo Private server powered by node.js.
     $ node gyazo.js
 
 ## Build clients
-Build Gyazo Private clients.
+Build Private Gyazo clients.
 
     edit gyazo.conf...
     $ node configure.js

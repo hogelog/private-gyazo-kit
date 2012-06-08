@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>Gyazo Private</title>
+<title>Private Gyazo</title>
 </head>
 <body>
 <ul>
-  <li><a href="gyazowin.exe">Gyazo Private for Windows</a></li>
-  <li><a href="gyazomac.zip">Gyazo Private for Mac</a></li>
-  <li><a href="gyazolinux.zip">Gyazo Private for Linux</a></li>
+  <li><a href="gyazowin.exe">Private Gyazo for Windows</a></li>
+  <li><a href="gyazomac.dmg">Private Gyazo for Mac</a></li>
+  <li><a href="gyazolinux.zip">Private Gyazo for Linux</a></li>
 </ul>
 </body>
 </html>
