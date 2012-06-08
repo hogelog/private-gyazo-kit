@@ -45,7 +45,7 @@ server = http.createServer(function(req, res){
       });
     });
     form.parse(req);
-  } else {
+  } else if (url != "/") {
     var imagepath = "./image/" + path.basename(url);
     path.exists(imagepath, function(exists){
       if (exists) {
@@ -57,6 +57,9 @@ server = http.createServer(function(req, res){
         res.end("Not Found");
       }
     });
+  } else {
+    res.writeHead(404, {"Content-Type": "text/plain"});
+    res.end("Not Found");
   }
 });
 
