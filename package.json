@@ -1,0 +1,13 @@
+{
+  "author": "hogelog",
+  "name": "private-gyazo",
+  "description": "private gyazo server",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.6.19"
+  },
+  "dependencies": {
+    "jsonconfig": ">= 0.3.0",
+    "formidable": ">= 1.0.11"
+  }
+}

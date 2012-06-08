@@ -5,8 +5,7 @@ Server and Clients.
 ## Run server
 Private Gyazo server powered by node.js.
 
-    $ npm install formidable
-    $ npm install jsonconfig
+    $ npm install
     $ cp gyazo.conf.template gyazo.conf
     edit gyazo.conf...
     $ node gyazo.js
