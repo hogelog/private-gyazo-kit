@@ -27,14 +27,14 @@ function configure(src, dst, msg) {
 }
 
 configure(
-  "client/Gyazo-for-Linux/gyazo.source",
-  "client/Gyazo-for-Linux/gyazo",
-  "configure client/Gyazo-for-Linux");
+  "Gyazo-for-Linux/gyazo.source",
+  "Gyazo-for-Linux/gyazo",
+  "configure Gyazo-for-Linux");
 
 configure(
-  "client/Gyazo/Gyazo.app/Contents/Resources/script.source",
-  "client/Gyazo/Gyazo.app/Contents/Resources/script",
-  "configure client/Gyazo");
+  "Gyazo/Gyazo.app/Contents/Resources/script.source",
+  "Gyazo/Gyazo.app/Contents/Resources/script",
+  "configure Gyazo");
 
 fs.readFile("Gyazowin/gyazowin.source.exe", function(err, data){
   if (err) throw err;
@@ -51,6 +51,6 @@ fs.readFile("Gyazowin/gyazowin.source.exe", function(err, data){
 
   fs.writeFile("Gyazowin/gyazowin.exe", data, function(err){
     if (err) throw err;
-    console.log("configure client/Gyazowin");
+    console.log("configure Gyazowin");
   });
 });

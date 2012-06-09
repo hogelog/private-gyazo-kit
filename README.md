@@ -5,6 +5,7 @@ Server and Clients.
 ## Run server
 Private Gyazo server powered by node.js.
 
+    $ git clone git://github.com/hogelog/private-gyazo-kit.git
     $ npm install
     $ cp gyazo.conf.template gyazo.conf
     edit gyazo.conf...
@@ -13,7 +14,10 @@ Private Gyazo server powered by node.js.
 ## Build clients
 Build Private Gyazo clients.
 
+    $ git submodule init
+    $ git submodule update
     edit gyazo.conf...
+    $ cd client
     $ node configure.js
     build some clients...
 
