@@ -26,15 +26,19 @@ function configure(src, dst, msg) {
   });
 }
 
-configure(
-  "Gyazo-for-Linux/gyazo.source",
-  "Gyazo-for-Linux/gyazo",
-  "configure Gyazo-for-Linux");
+if (!path.existsSync("build")) {
+  fs.mkdirSync("build");
+}
 
 configure(
   "Gyazo/Gyazo.app/Contents/Resources/script.source",
   "Gyazo/Gyazo.app/Contents/Resources/script",
   "configure Gyazo");
+
+configure(
+  "Gyazo-for-Linux/gyazo.source",
+  "build/gyazo",
+  "Gyazo-for-Linux: build/gyazo");
 
 fs.readFile("Gyazowin/gyazowin.source.exe", function(err, data){
   if (err) throw err;
@@ -49,8 +53,8 @@ fs.readFile("Gyazowin/gyazowin.source.exe", function(err, data){
   data.writeInt32LE(PORT, 0x62D8);
   data.writeInt32LE(0, 0x62DC);
 
-  fs.writeFile("Gyazowin/gyazowin.exe", data, function(err){
+  fs.writeFile("build/gyazowin.exe", data, function(err){
     if (err) throw err;
-    console.log("configure Gyazowin");
+    console.log("Gyazowin: build/gyazowin.exe");
   });
 });
