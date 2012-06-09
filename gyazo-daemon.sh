@@ -1,8 +1,10 @@
 #!/bin/sh
 
 appdir=`echo $(cd $(dirname $0);pwd)`
-pidfile=$appdir/gyazo.pid
-args="--name gyazo --pidfile $pidfile --core --chdir $appdir"
+pidfile=$appdir/log/gyazo.pid
+logfile=$appdir/log/gyazo.log
+errfile=$appdir/log/gyazo.err
+args="--name gyazo --pidfile=$pidfile --stdout=$logfile --stderr=$errfile --core --chdir=$appdir"
 
 running() {
   daemon $args --running
