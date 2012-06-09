@@ -13,18 +13,17 @@ Private Gyazo server powered by node.js.
     $ node gyazo.js
 
 ## Build clients
-Build Private Gyazo clients.
+Build Private Gyazo clients require only node.js!
 
-    $ git submodule init
-    $ git submodule update
     edit gyazo.conf...
     $ cd client
-    $ node configure.js
-    build some clients...
+    $ node make.js
+    Gyazo-for-Linux: ../public/gyazo
+    Gyazowin: ../public/gyazowin.exe
+    Gyazo: ../public/gyazomac.zip
 
 ## Distribute clients
 Distribute above built clients.
 
-    copy built clients to public/
     $ cp public/index.html.template public/index.html
     edit index.html...
