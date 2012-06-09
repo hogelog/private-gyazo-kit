@@ -1,9 +1,6 @@
 [submodule "client/Gyazo"]
 	path = client/Gyazo
 	url = git://github.com/hogelog/Gyazo.git
-[submodule "client/Gyazowin"]
-	path = client/Gyazowin
-	url = git://github.com/hogelog/Gyazowin.git
 [submodule "client/Gyazo-for-Linux"]
 	path = client/Gyazo-for-Linux
 	url = git://github.com/hogelog/Gyazo-for-Linux.git
