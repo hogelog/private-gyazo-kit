@@ -18,10 +18,16 @@ function connectFile(path, res) {
   var input = fs.createReadStream(path);
   input.pipe(res);
 }
-
-function notfound(res) {
-    res.writeHead(404, {"Content-Type": "text/plain"});
-    res.end("Not Found");
+function distributeFile(path, type, res) {
+  path.exists(path, function(exists){
+    if (exists) {
+      res.writeHead(200, {"Content-Type": type});
+      connectFile(path, res);
+    } else {
+      res.writeHead(404, {"Content-Type": "text/plain"});
+      res.end("Not Found");
+    }
+  });
 }
 
 server = http.createServer(function(req, res){
@@ -65,14 +71,7 @@ server = http.createServer(function(req, res){
   } else if (url.indexOf(".png") == 33) {
     // publish image
     var imagepath = "./image/" + path.basename(url);
-    path.exists(imagepath, function(exists){
-      if (exists) {
-        res.writeHead(200, {"Content-Type": "image/png"});
-        connectFile(imagepath, res);
-      } else {
-        notfound(res);
-      }
-    });
+    distributeFile(imagepath, "image/png", res);
   } else if (url == "/") {
     // publish download page
     res.writeHead(200, {"Content-Type": "text/html"});
@@ -80,14 +79,7 @@ server = http.createServer(function(req, res){
   } else {
     // publish client
     var filepath = "./public/" + path.basename(url);
-    path.exists(filepath, function(exists){
-      if (exists) {
-        res.writeHead(200, {"Content-Type": "application/octet-stream"});
-        connectFile(filepath, res);
-      } else {
-        notfound(res);
-      }
-    });
+    distributeFile(filepath, "application/octet-stream", res);
   }
 });
 
