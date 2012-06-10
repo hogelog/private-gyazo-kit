@@ -18,11 +18,11 @@ function connectFile(path, res) {
   var input = fs.createReadStream(path);
   input.pipe(res);
 }
-function distributeFile(path, type, res) {
-  path.exists(path, function(exists){
+function distributeFile(file, type, res) {
+  path.exists(file, function(exists){
     if (exists) {
       res.writeHead(200, {"Content-Type": type});
-      connectFile(path, res);
+      connectFile(file, res);
     } else {
       res.writeHead(404, {"Content-Type": "text/plain"});
       res.end("Not Found");
