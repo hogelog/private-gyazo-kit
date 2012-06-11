@@ -38,35 +38,29 @@ server = http.createServer(function(req, res){
     var form = new formidable.IncomingForm();
     form.encoding = "binary";
     var md5sum = crypto.createHash("md5");
-    var id, imagedata;
-    form
-      .on("field", function(name, val){
-        if (name == "id") {
-          id = val;
-        }
-      })
-      .on("file", function(name, file){
-        if (name == "imagedata") {
-          fs.readFile(file.path, function(err, data){
-            if (err) console.log(err);
-            imagedata = data;
-            md5sum.update(imagedata, "binary");
-            var hash = md5sum.digest("hex");
-            var dst_name = hash + ".png";
-            var dst_path = "./image/" + dst_name;
-            fs.rename(file.path, dst_path, function(err){
-              if (err) {
-                res.writeHead(500, {"Content-Type": "text/plain"})
-                res.end("cannot write uploaded data");
-              } else {
-                res.writeHead(200, {"Content-Type": "text/plain"});
-                res.end(URL + dst_name);
-                console.log("uploaded " + dst_name);
-              }
-            });
+    var imagedata;
+    form.on("file", function(name, file){
+      if (name == "imagedata") {
+        fs.readFile(file.path, function(err, data){
+          if (err) console.log(err);
+          imagedata = data;
+          md5sum.update(imagedata, "binary");
+          var hash = md5sum.digest("hex");
+          var dst_name = hash + ".png";
+          var dst_path = "./image/" + dst_name;
+          fs.rename(file.path, dst_path, function(err){
+            if (err) {
+              res.writeHead(500, {"Content-Type": "text/plain"})
+              res.end("cannot write uploaded data");
+            } else {
+              res.writeHead(200, {"Content-Type": "text/plain"});
+              res.end(URL + dst_name);
+              console.log("uploaded " + URL + dst_name);
+            }
           });
-        }
-      });
+        });
+      }
+    });
     form.parse(req);
   } else if (url.indexOf(".png") == 33) {
     // publish image
