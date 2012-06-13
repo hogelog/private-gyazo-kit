@@ -31,12 +31,12 @@ fs.readFile("gyazo.source", "utf-8", function(err, data){
 
 fs.readFile("gyazowin.source.exe", function(err, exe){
   if (err) throw err;
-  exe.write(PATH+"\0", 0x6138, "ucs2");
+  exe.write(PATH+"\0", 0x1B788, "ucs2");
 
-  exe.write(HOST+"\0", 0x6208, "ucs2");
+  exe.write(HOST+"\0", 0x1B858, "ucs2");
 
-  exe.writeInt32LE(PORT, 0x62D8);
-  exe.writeInt32LE(0, 0x62DC);
+  exe.writeInt32LE(PORT, 0x1B928);
+  exe.writeInt32LE(0, 0x1B92C);
 
   writeFile("../public/gyazowin.exe", exe, "Gyazowin: ../public/gyazowin.exe");
 });
