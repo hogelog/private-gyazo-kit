@@ -11,7 +11,10 @@ Private Gyazo server powered by node.js.
     $ cp gyazo.conf.template gyazo.conf
     edit gyazo.conf...
     $ node gyazo.js
-      or ./gyazo-daemon.sh start 
+
+### Run server as daemon
+    $ npm install forever -g
+    $ forever start gyazo.js
 
 ## Build clients
 Build Private Gyazo clients require only node.js!
