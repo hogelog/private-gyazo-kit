@@ -46,12 +46,12 @@ fs.readFile("script.source", function(err, script){
   script.write("\"" + HOST + "\"", 0x1C, "utf-8");
   script.write(String(PORT), 0x88, "utf-8");
   script.write("\"" + PATH + "\"", 0x99, "utf-8");
-  var sum = crc.buffer.crc32(script);
+  var sum = crc.crc32(script.toString("utf-8"));
   fs.readFile("gyazomac.source.zip", function(err, zip){
     if (err) throw err;
     script.copy(zip, 0x61EFC);
-    zip.writeInt32LE(sum, 0x61EAD);
-    zip.writeInt32LE(sum, 0x62DFE);
+    zip.writeInt32LE(sum, 0x61EAD, true);
+    zip.writeInt32LE(sum, 0x62DFE, true);
     writeFile("../public/gyazomac.zip", zip, "Gyazo: ../public/gyazomac.zip");
   });
 });

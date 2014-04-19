@@ -7,8 +7,8 @@
     "node": "0.6.19"
   },
   "dependencies": {
-    "jsonconfig": ">= 0.3.0",
-    "formidable": ">= 1.0.11",
-    "crc": ">= 0.2.0"
+    "jsonconfig": "~ 0.3.0",
+    "formidable": "~ 1.0.14",
+    "crc": "~ 1.0.0"
   }
 }
