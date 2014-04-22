@@ -6,6 +6,7 @@
   "engines": {
     "node": "0.6.19"
   },
+  "license": "GPL v3",
   "dependencies": {
     "jsonconfig": "~ 0.3.0",
     "formidable": "~ 1.0.14",
